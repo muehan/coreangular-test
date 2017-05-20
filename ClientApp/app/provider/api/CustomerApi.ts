@@ -77,16 +77,16 @@ export class CustomerApi {
      * 
      * @param id 
      */
-    public apiCustomerGetGet(id?: number, extraHttpRequestParams?: any): Observable<models.Customer> {
-        return this.apiCustomerGetGetWithHttpInfo(id, extraHttpRequestParams)
-            .map((response: Response) => {
-                if (response.status === 204) {
-                    return undefined;
-                } else {
-                    return response.json();
-                }
-            });
-    }
+    //public apiCustomerGetGet(id?: number, extraHttpRequestParams?: any): Observable<models.Customer> {
+    //    return this.apiCustomerGetGetWithHttpInfo(id, extraHttpRequestParams)
+    //        .map((response: Response) => {
+    //            if (response.status === 204) {
+    //                return undefined;
+    //            } else {
+    //                return response.json();
+    //            }
+    //        });
+    //}
 
 
     /**
@@ -173,40 +173,40 @@ export class CustomerApi {
      * 
      * @param id 
      */
-    public apiCustomerGetGetWithHttpInfo(id?: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/api/Customer/Get`;
+    //public apiCustomerGetGetWithHttpInfo(id?: number, extraHttpRequestParams?: any): Observable<Response> {
+    //    const path = this.basePath + `/api/Customer/Get`;
 
-        let queryParameters = new URLSearchParams();
-        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        if (id !== undefined) {
-            if(id instanceof Date) {
-                queryParameters.set('id', <any>id.d.toISOString());
-            } else {
-                queryParameters.set('id', <any>id);
-            }
-        }
+    //    let queryParameters = new URLSearchParams();
+    //    let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+    //    if (id !== undefined) {
+    //        if(id instanceof Date) {
+    //            queryParameters.set('id', <any>id.d.toISOString());
+    //        } else {
+    //            queryParameters.set('id', <any>id);
+    //        }
+    //    }
 
-        // to determine the Content-Type header
-        let consumes: string[] = [
-        ];
+    //    // to determine the Content-Type header
+    //    let consumes: string[] = [
+    //    ];
 
-        // to determine the Accept header
-        let produces: string[] = [
-            'application/json'
-        ];
+    //    // to determine the Accept header
+    //    let produces: string[] = [
+    //        'application/json'
+    //    ];
 
-        let requestOptions: RequestOptionsArgs = new RequestOptions({
-            method: RequestMethod.Get,
-            headers: headers,
-            search: queryParameters
-        });
+    //    let requestOptions: RequestOptionsArgs = new RequestOptions({
+    //        method: RequestMethod.Get,
+    //        headers: headers,
+    //        search: queryParameters
+    //    });
 
-        // https://github.com/swagger-api/swagger-codegen/issues/4037
-        if (extraHttpRequestParams) {
-            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-        }
+    //    // https://github.com/swagger-api/swagger-codegen/issues/4037
+    //    if (extraHttpRequestParams) {
+    //        requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+    //    }
 
-        return this.http.request(path, requestOptions);
-    }
+    //    return this.http.request(path, requestOptions);
+    //}
 
 }
